@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mpice</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+
+    
+  </head>
+  <body>
+    <div class="page-slider">
+      <a class="paw paw-active" id="home" href="#desktop-nav">
+        <div class="tooltip">Top</div>
+      </a>
+      <a class="paw" href="#about">
+        <div class="tooltip">About</div>
+      </a>
+      <a class="paw" href="#get-started">
+        <div class="tooltip">Get-started</div>
+      </a>
+      <a class="paw" href="#contact">
+        <div class="tooltip">Contact</div>
+      </a>
+    </div>
+
+    <nav id="desktop-nav">
+      <!-- <div class="logo">Mpice</div> -->
+      <div><img class="logo" src="./assets/title_meow_gray.png" alt=""></div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#get-started">Get-started</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    
+    <nav id="hamburger-nav">
+      <div><img class="logo" src="./assets/title_meow_gray.png" alt=""></div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#get-started" onclick="toggleMenu()">Get-started</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </div>
+      </div>
+    </nav>
+
+    <section class="home" id="home">
+      <div class="section__container home__container grid-container">
+        <div class="home__text">  
+          <h3 class="home__title">Finding a FREE spice?</h3>
+          <p class="home__text__p1">
+            Embark on a journey into the world of electronics with <span class="p-bold">Mspice</span>,
+            a dynamic and collaborative circuit simulation software crafted by a group of passionate university students. 
+          </p>
+          <div class="btn__container">
+            <button
+              class="btn btn-color-1"
+              onclick="window.open('./assets/resume-example.pdf')"
+            >
+            <i data-lucide="download" class="btn-icon"></i> Download for Windows
+            </button>
+          </div>
+          <div class="socials__container">
+            <a href="https://github.com/" title="Github" target="_blank">
+              <i data-lucide="github" class="icon" title="Github" href="https://github.com/"></i>
+            </a>
+            <a href="https://github.com/" title="Donate" target="_blank">
+              <i data-lucide="fish-symbol" class="icon" title="Donate" href="https://github.com/"></i>
+            </a>
+
+            <!-- <img
+              src="./assets/linkedin.png"
+              alt="My LinkedIn profile"
+              class="icon"
+              onclick="location.href='https://linkedin.com/'"
+            /> -->
+            <!-- <img
+              src="./assets/github.png"
+              alt="My Github profile"
+              class="icon"
+              onclick="location.href='https://github.com/'"
+            /> -->
+          </div>
+        </div>
+    
+        <div class="home__pic-container">
+          <img src="./assets/meow.png" alt="wpice-pic" />
+        </div>
+
+      </div>
+
+      <div class="intro like-section" id="intro">
+        <div class="intro__container section__container grid-container">
+  
+          <div class="intro__spFile">
+            <div class="spFile__header">
+              <div class="fake-window-btn window-btn-1"></div>
+              <div class="fake-window-btn window-btn-2"></div>
+              <div class="fake-window-btn window-btn-3"></div>
+            </div>
+            
+            <div class="spFile-text"> 
+              * Mu circuit<br>
+              <br>
+              * Netlist<br>
+              L_head left-ear right-ear 100u<br>
+              C_left-whisker left-ear node_1 100u<br>
+              C_left-whisker right-ear node_2 100u<br>
+              R_mouth left-cheek right-cheek 1k<br>
+              <br>
+              * Analysis<br>
+              V1 node_1 0 1<br>
+              V2 node_2 0 0<br>
+              <br>
+              .end<br>
+              <br>
+            </div>
+  
+          </div>
+          <div class="intro__text">
+            <h3 class="intro__title">Use 
+              <span class="file-type-deco">.sp</span> or 
+              <span class="file-type-deco">.txt</span> 
+              to create your circuit!
+            </h3>
+  
+            <p>Like Hspice, like Ngspice.</p>
+            <p>But Simpler.</p>
+          </div>
+  
+        </div>
+      </div>
+
+    </section>
+
+    <!-- <div class="intro like-section" id="intro">
+      <div class="intro__container section__container grid-container">
+
+        <div class="intro__spFile">
+          <div class="spFile__header">
+            <div class="fake-window-btn window-btn-1"></div>
+            <div class="fake-window-btn window-btn-2"></div>
+            <div class="fake-window-btn window-btn-3"></div>
+          </div>
+          
+          <div class="spFile-text"> 
+            * Mu circuit<br>
+            <br>
+            * Netlist<br>
+            L_head left-ear right-ear 100u<br>
+            C_left-whisker left-ear node_1 100u<br>
+            C_left-whisker right-ear node_2 100u<br>
+            R_mouth left-cheek right-cheek 1k<br>
+            <br>
+            * Analysis<br>
+            V1 node_1 0 1<br>
+            V2 node_2 0 0<br>
+            <br>
+            .end<br>
+            <br>
+          </div>
+
+        </div>
+        <div class="intro__text">
+          <h3 class="intro__title">Use 
+            <span class="file-type-deco">.sp</span> or 
+            <span class="file-type-deco">.txt</span> 
+            to create your circuit!
+          </h3>
+
+          <p>Like Hspice, like Ngspice.</p>
+          <p>But Simpler.</p>
+        </div>
+
+      </div>
+    </div> -->
+
+
+    <section class="about" id="about">
+      <div class="section__container about__container">
+        <div class="grid-container">
+          <div class="about__text">
+            <h1 class="title">About Us</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+              Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+        </div>
+        
+        <div class="bread-board-edge">
+          <div class="VDD-line bread-board_line">
+            <i data-lucide="plus" class="bread-board-icon add"></i>
+          </div>
+          
+          <div class="VSS-line bread-board_line">
+            <i data-lucide="minus" class="bread-board-icon minus"></i>
+          </div>
+        </div>
+          
+        <!-- <div class="VSS"></div> -->
+
+        <div class="about__member">
+          <div class="small-grid-container">
+
+            <div class="about__member-card card__profile-1">
+              <div class="card-pic">
+                <img src="./assets/test-profile-pic.jpg" alt="">
+              </div>
+              <h3 class="card-name chinese">XXX</h3>
+            </div>
+
+            <div class="about__member-card card__info-1">
+              <div class="card-lists">
+                <ul class="card-tags">
+                 <li>Coder</li>
+               </ul>
+               <ul class="card__info-list">
+                 <li><i data-lucide="school" class="card-icon"></i>NCU EE</li>
+                 <li><i data-lucide="at-sign" class="card-icon"></i>example@gmail.com</li>
+                 <li><a href="https://www.instagram.com" class="insta-btn" target="_blank"><i data-lucide="instagram" class="card-icon"></i> @instagram</a></li>
+               </ul>
+             </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="board-middle bread-board_line"></div>
+
+        <div class="about__member">
+          <div class="small-grid-container">
+
+            <div class="about__member-card card__profile-2">
+              <div class="card-pic">
+                <img src="./assets/test-profile-pic.jpg" alt="">
+              </div>
+              <h3 class="card-name chinese">XXX</h3>
+            </div>
+
+            <div class="about__member-card card__info-2">
+              <div class="card-lists">
+                <ul class="card-tags">
+                 <li>Coder</li>
+               </ul>
+               <ul class="card__info-list">
+                 <li><i data-lucide="school" class="card-icon"></i>NCU EE</li>
+                 <li><i data-lucide="at-sign" class="card-icon"></i>example@gmail.com</li>
+                 <li><a href="https://www.instagram.com" class="insta-btn" target="_blank"><i data-lucide="instagram" class="card-icon"></i> @instagram</a></li>
+               </ul>
+             </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="bread-board-edge">
+          <div class="VDD-line bread-board_line">
+            <i data-lucide="plus" class="bread-board-icon add"></i>
+          </div>
+          
+          <div class="VSS-line bread-board_line">
+            <i data-lucide="minus" class="bread-board-icon minus"></i>
+          </div>
+        </div>
+          
+        <!-- <div class="VSS"></div> -->
+
+        <div class="about__member">
+          <div class="small-grid-container">
+
+            <div class="about__member-card card__profile-1">
+              <div class="card-pic">
+                <img src="./assets/test-profile-pic.jpg" alt="">
+              </div>
+              <h3 class="card-name chinese">陳俊瑋</h3>
+            </div>
+
+            <div class="about__member-card card__info-1">
+              <div class="card-lists">
+                <ul class="card-tags">
+                 <li>Coder</li>
+               </ul>
+               <ul class="card__info-list">
+                 <li><i data-lucide="school" class="card-icon"></i>NCU EE</li>
+                 <li><i data-lucide="at-sign" class="card-icon"></i>example@gmail.com</li>
+                 <li><a href="https://www.instagram.com" class="insta-btn" target="_blank"><i data-lucide="instagram" class="card-icon"></i> @instagram</a></li>
+               </ul>
+             </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="board-middle bread-board_line"></div>
+
+        <div class="about__member">
+          <div class="small-grid-container">
+
+            <div class="about__member-card card__profile-2">
+              <div class="card-pic">
+                <img src="./assets/test-profile-pic.jpg" alt="">
+              </div>
+              <h3 class="card-name chinese">陳俊瑋</h3>
+            </div>
+
+            <div class="about__member-card card__info-2">
+              <div class="card-lists">
+                 <ul class="card-tags">
+                  <li>Coder</li>
+                  <li>UI Designer</li>
+                  <li>Web Designer</li>
+                </ul>
+                <ul class="card__info-list">
+                  <li><i data-lucide="school" class="card-icon"></i>NCU EE</li>
+                  <li><i data-lucide="at-sign" class="card-icon"></i>a0935109965@gmail.com</li>
+                  <li>
+                    <a href="https://www.instagram.com/will_i_am__chen/?hl=zh-tw" class="insta-btn" target="_blank">
+                      <i data-lucide="instagram" class="card-icon"></i>will_i_am__chen
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="bread-board-edge">
+          <div class="VDD-line bread-board_line">
+            <i data-lucide="plus" class="bread-board-icon add"></i>
+          </div>
+          
+          <div class="VSS-line bread-board_line">
+            <i data-lucide="minus" class="bread-board-icon minus"></i>
+          </div>
+        </div>
+          
+
+      </div>
+      
+    </section>
+
+
+    <section class="get-started" id="get-started">
+      <h1 class="title">Get-started</h1>
+      <div class="section-container get-started__container">
+        
+        <q class="get-started__text">Watch our tutorial in YT!</q>
+
+        <div class="get-started_upper-container">
+          
+          <div  class="get-started_container">
+            <img
+              src="./assets/youtube.png"
+              alt="YT icon"
+              class="icon contact-icon email-icon"
+            />
+            <p><a href="https://www.youtube.com/">www.youtube.com</a></p>
+          </div>
+
+        </div>
+      </div>
+        
+    </section>
+
+
+
+    <section class="contact" id="contact">
+      <!-- <p class="section__text__p1">Get in Touch</p> -->
+      <h1 class="title">Contact Us</h1>
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+          <img
+            src="./assets/email.png"
+            alt="Email icon"
+            class="icon contact-icon email-icon"
+          />
+          <p><a href="mailto:examplemail@gmail.com">Example@gmail.com</a></p>
+        </div>
+        <!-- <div class="contact-info-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="LinkedIn icon"
+            class="icon contact-icon"
+          />
+          <p><a href="https://www.linkedin.com">LinkedIn</a></p>
+        </div> -->
+      </div>
+    </section>
+    <footer>
+      <nav>
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li><a href="#home">Top</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#get-started">Get-started</a></li>
+            <!-- <li><a href="#projects">Projects</a></li> -->
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <p>Copyright &#169; 2024 William Chen. All Rights Reserved.</p>
+    </footer>
+
+
+    <!-- SCRIPT -->
+    <script src="script.js"></script>
+  
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+    <!-- <script src="lang-switch.js"></script> -->
+  
+  </body>
+</html>
