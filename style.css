@@ -11,9 +11,17 @@
   --light-gray: #dbd8de;
 }
 
-* {
-  margin: 0;
-  padding: 0;
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  content: "";
 }
 
 body {
