@@ -21,7 +21,7 @@
 
 *::before,
 *::after {
-  content: "";
+  /* content: ""; */
 }
 
 body {
@@ -183,8 +183,13 @@ nav {
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: white;
+  white-space: nowrap;
+  background-color: #35353598;
+  backdrop-filter: blur(5px);
+  border-radius: 5px;
+  /* width: 30vh; */
   width: fit-content;
+  padding: 20px;
   max-height: 0;
   overflow: hidden;
   transition: all 0.3 ease-in-out;
@@ -195,9 +200,9 @@ nav {
   padding: 10px;
   text-align: center;
   font-size: 1.5rem;
-  color: black;
+  color: var(--light-gray);
   text-decoration: none;
-  transition: all 0.3 ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .menu-links li {
