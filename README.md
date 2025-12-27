@@ -1,2 +1,2 @@
 # Mspice
-專題開發軟體的下載頁面 的基本架構
+大學專題 Python_Based_SPICE_Circuit_Simulation的網頁
