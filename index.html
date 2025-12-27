@@ -1,149 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mpice</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="mediaqueries.css" />
 
-    
-  </head>
-  <body>
-    <div class="page-slider">
-      <a class="paw paw-active" id="home" href="#desktop-nav">
-        <div class="tooltip">Top</div>
-      </a>
-      <a class="paw" href="#about">
-        <div class="tooltip">About</div>
-      </a>
-      <a class="paw" href="#get-started">
-        <div class="tooltip">Get-started</div>
-      </a>
-      <a class="paw" href="#contact">
-        <div class="tooltip">Contact</div>
-      </a>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mspice</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <link rel="stylesheet" href="/static/css/guide_style.css" />
+  <link rel="stylesheet" href="/static/css/mediaqueries.css" />
+
+
+</head>
+
+<body>
+  <div class="page-slider">
+    <a class="paw paw-active" id="home" href="#desktop-nav">
+      <div class="tooltip">Top</div>
+    </a>
+    <a class="paw" href="#about">
+      <div class="tooltip">About</div>
+    </a>
+    <a class="paw" href="#get-started">
+      <div class="tooltip">Get-started</div>
+    </a>
+    <a class="paw" href="#docs">
+      <div class="tooltip">Docs</div>
+    </a>
+  </div>
+
+  <nav id="desktop-nav">
+    <!-- <div class="logo">Mpice</div> -->
+    <div><img class="logo" src="/static/assets/title_meow_gray.png" alt=""></div>
+    <div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#get-started">Get-started</a></li>
+        <li><a href="#docs">Docs</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <nav id="hamburger-nav">
+    <div><img class="logo" src="/static/assets/title_meow_gray.png" alt=""></div>
+    <div class="hamburger-menu">
+      <div class="hamburger-icon" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="menu-links">
+        <li><a href="#about" onclick="toggleMenu()">About</a></li>
+        <li><a href="#get-started" onclick="toggleMenu()">Get-started</a></li>
+        <li><a href="#docs" onclick="toggleMenu()">Docs</a></li>
+      </div>
+    </div>
+  </nav>
+
+  <section class="home" id="home">
+    <div class="section__container home__container grid-container">
+      <div class="home__text">
+        <h3 class="home__title">Finding a FREE spice?</h3>
+        <p class="home__text__p1">
+          Simulate circuits with simplicity. <br>
+          <span class="p-bold">Mspice</span> is a Python-based SPICE engine built for students and researchers
+          — lightweight, portable, and fully <span class="p-bold">open-source</span>.
+        </p>
+        <div class="btn__container">
+          <button class="btn btn-color-1" onclick="location.href='app'">
+            <i data-lucide="laptop" class="btn-icon"></i> Try Mspice Online!
+          </button>
+        </div>
+        <div class="socials__container">
+          <a href="https://github.com/" title="Github" target="_blank">
+            <i data-lucide="github" class="icon" title="Github" href="https://github.com/"></i>
+          </a>
+          <a href="https://github.com/" title="Donate" target="_blank">
+            <i data-lucide="fish-symbol" class="icon" title="Donate" href="https://github.com/"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="home__pic-container">
+        <img src="/static/assets/meow.png" alt="wpice-pic" />
+      </div>
+
     </div>
 
-    <nav id="desktop-nav">
-      <!-- <div class="logo">Mpice</div> -->
-      <div><img class="logo" src="./assets/title_meow_gray.png" alt=""></div>
-      <div>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#get-started">Get-started</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-    
-    <nav id="hamburger-nav">
-      <div><img class="logo" src="./assets/title_meow_gray.png" alt=""></div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#get-started" onclick="toggleMenu()">Get-started</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-        </div>
-      </div>
-    </nav>
-
-    <section class="home" id="home">
-      <div class="section__container home__container grid-container">
-        <div class="home__text">  
-          <h3 class="home__title">Finding a FREE spice?</h3>
-          <p class="home__text__p1">
-            Embark on a journey into the world of electronics with <span class="p-bold">Mspice</span>,
-            a dynamic and collaborative circuit simulation software crafted by a group of passionate university students. 
-          </p>
-          <div class="btn__container">
-            <button
-              class="btn btn-color-1"
-              onclick="window.open('./assets/resume-example.pdf')"
-            >
-            <i data-lucide="download" class="btn-icon"></i> Download for Windows
-            </button>
-          </div>
-          <div class="socials__container">
-            <a href="https://github.com/" title="Github" target="_blank">
-              <i data-lucide="github" class="icon" title="Github" href="https://github.com/"></i>
-            </a>
-            <a href="https://github.com/" title="Donate" target="_blank">
-              <i data-lucide="fish-symbol" class="icon" title="Donate" href="https://github.com/"></i>
-            </a>
-
-            <!-- <img
-              src="./assets/linkedin.png"
-              alt="My LinkedIn profile"
-              class="icon"
-              onclick="location.href='https://linkedin.com/'"
-            /> -->
-            <!-- <img
-              src="./assets/github.png"
-              alt="My Github profile"
-              class="icon"
-              onclick="location.href='https://github.com/'"
-            /> -->
-          </div>
-        </div>
-    
-        <div class="home__pic-container">
-          <img src="./assets/meow.png" alt="wpice-pic" />
-        </div>
-
-      </div>
-
-      <div class="intro like-section" id="intro">
-        <div class="intro__container section__container grid-container">
-  
-          <div class="intro__spFile">
-            <div class="spFile__header">
-              <div class="fake-window-btn window-btn-1"></div>
-              <div class="fake-window-btn window-btn-2"></div>
-              <div class="fake-window-btn window-btn-3"></div>
-            </div>
-            
-            <div class="spFile-text"> 
-              * Mu circuit<br>
-              <br>
-              * Netlist<br>
-              L_head left-ear right-ear 100u<br>
-              C_left-whisker left-ear node_1 100u<br>
-              C_left-whisker right-ear node_2 100u<br>
-              R_mouth left-cheek right-cheek 1k<br>
-              <br>
-              * Analysis<br>
-              V1 node_1 0 1<br>
-              V2 node_2 0 0<br>
-              <br>
-              .end<br>
-              <br>
-            </div>
-  
-          </div>
-          <div class="intro__text">
-            <h3 class="intro__title">Use 
-              <span class="file-type-deco">.sp</span> or 
-              <span class="file-type-deco">.txt</span> 
-              to create your circuit!
-            </h3>
-  
-            <p>Like Hspice, like Ngspice.</p>
-            <p>But Simpler.</p>
-          </div>
-  
-        </div>
-      </div>
-
-    </section>
-
-    <!-- <div class="intro like-section" id="intro">
+    <div class="intro like-section" id="intro">
       <div class="intro__container section__container grid-container">
 
         <div class="intro__spFile">
@@ -152,280 +96,360 @@
             <div class="fake-window-btn window-btn-2"></div>
             <div class="fake-window-btn window-btn-3"></div>
           </div>
-          
-          <div class="spFile-text"> 
-            * Mu circuit<br>
-            <br>
-            * Netlist<br>
-            L_head left-ear right-ear 100u<br>
-            C_left-whisker left-ear node_1 100u<br>
-            C_left-whisker right-ear node_2 100u<br>
-            R_mouth left-cheek right-cheek 1k<br>
-            <br>
-            * Analysis<br>
-            V1 node_1 0 1<br>
-            V2 node_2 0 0<br>
-            <br>
-            .end<br>
-            <br>
-          </div>
 
+          <div class="spFile-text typing-cursor"></div>
         </div>
+
         <div class="intro__text">
-          <h3 class="intro__title">Use 
-            <span class="file-type-deco">.sp</span> or 
-            <span class="file-type-deco">.txt</span> 
+          <h3 class="intro__title">Use
+            <span class="file-type-deco">.sp</span> or
+            <span class="file-type-deco">.txt</span>
             to create your circuit!
           </h3>
 
           <p>Like Hspice, like Ngspice.</p>
           <p>But Simpler.</p>
         </div>
-
       </div>
-    </div> -->
+
+  </section>
+
+  <section class="about" id="about">
+    <div class="section__container about__container">
+      <div class="grid-container">
+        <div class="about__text">
+          <h1 class="title">About Us</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+            laborum.
+          </p>
+        </div>
+      </div>
+
+      <div class="bread-board-edge">
+        <div class="VDD-line bread-board_line">
+          <i data-lucide="plus" class="bread-board-icon add"></i>
+        </div>
+
+        <div class="VSS-line bread-board_line">
+          <i data-lucide="minus" class="bread-board-icon minus"></i>
+        </div>
+      </div>
+
+      <!-- <div class="VSS"></div> -->
+
+      <div class="about__member">
+        <div class="small-grid-container">
+
+          <div class="about__member-card card__profile-1">
+            <div class="card-pic">
+              <img src="/static/assets/test-profile-pic.jpg" alt="">
+            </div>
+            <h3 class="card-name chinese">XXX</h3>
+          </div>
+
+          <div class="about__member-card card__info-1">
+            <div class="card-lists">
+              <ul class="card-tags">
+                <li>Coder</li>
+              </ul>
+              <ul class="card__info-list">
+                <li><i data-lucide="school" class="card-icon"></i>NCU EE</li>
+                <li><i data-lucide="at-sign" class="card-icon"></i>example@gmail.com</li>
+                <li><a href="https://www.instagram.com" class="insta-btn" target="_blank"><i data-lucide="instagram"
+                      class="card-icon"></i> @instagram</a></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="board-middle bread-board_line"></div>
+
+      <div class="about__member">
+        <div class="small-grid-container">
+
+          <div class="about__member-card card__profile-2">
+            <div class="card-pic">
+              <img src="/static/assets/test-profile-pic.jpg" alt="">
+            </div>
+            <h3 class="card-name chinese">XXX</h3>
+          </div>
+
+          <div class="about__member-card card__info-2">
+            <div class="card-lists">
+              <ul class="card-tags">
+                <li>Coder</li>
+              </ul>
+              <ul class="card__info-list">
+                <li><i data-lucide="school" class="card-icon"></i>NCU EE</li>
+                <li><i data-lucide="at-sign" class="card-icon"></i>example@gmail.com</li>
+                <li><a href="https://www.instagram.com" class="insta-btn" target="_blank"><i data-lucide="instagram"
+                      class="card-icon"></i> @instagram</a></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
 
 
-    <section class="about" id="about">
-      <div class="section__container about__container">
-        <div class="grid-container">
-          <div class="about__text">
-            <h1 class="title">About Us</h1>
+      <div class="bread-board-edge">
+        <div class="VDD-line bread-board_line">
+          <i data-lucide="plus" class="bread-board-icon add"></i>
+        </div>
+
+        <div class="VSS-line bread-board_line">
+          <i data-lucide="minus" class="bread-board-icon minus"></i>
+        </div>
+      </div>
+
+      <!-- <div class="VSS"></div> -->
+
+      <div class="about__member">
+        <div class="small-grid-container">
+
+          <div class="about__member-card card__profile-1">
+            <div class="card-pic">
+              <img src="/static/assets/test-profile-pic.jpg" alt="">
+            </div>
+            <h3 class="card-name chinese">XXX</h3>
+          </div>
+
+          <div class="about__member-card card__info-1">
+            <div class="card-lists">
+              <ul class="card-tags">
+                <li>Coder</li>
+              </ul>
+              <ul class="card__info-list">
+                <li><i data-lucide="school" class="card-icon"></i>NCU EE</li>
+                <li><i data-lucide="at-sign" class="card-icon"></i>example@gmail.com</li>
+                <li><a href="https://www.instagram.com" class="insta-btn" target="_blank"><i data-lucide="instagram"
+                      class="card-icon"></i> @instagram</a></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="board-middle bread-board_line"></div>
+
+      <div class="about__member">
+        <div class="small-grid-container">
+
+          <div class="about__member-card card__profile-2">
+            <div class="card-pic">
+              <img src="/static/assets/test-profile-pic.jpg" alt="">
+            </div>
+            <h3 class="card-name chinese">陳俊瑋</h3>
+          </div>
+
+          <div class="about__member-card card__info-2">
+            <div class="card-lists">
+              <ul class="card-tags">
+                <li>Coder</li>
+                <li>UI Designer</li>
+                <li>Web Designer</li>
+              </ul>
+              <ul class="card__info-list">
+                <li><i data-lucide="school" class="card-icon"></i>NCU EE</li>
+                <li><i data-lucide="at-sign" class="card-icon"></i>a0935109965@gmail.com</li>
+                <li>
+                  <a href="https://www.instagram.com/will_i_am__chen/?hl=zh-tw" class="insta-btn" target="_blank">
+                    <i data-lucide="instagram" class="card-icon"></i>will_i_am__chen
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="bread-board-edge">
+        <div class="VDD-line bread-board_line">
+          <i data-lucide="plus" class="bread-board-icon add"></i>
+        </div>
+
+        <div class="VSS-line bread-board_line">
+          <i data-lucide="minus" class="bread-board-icon minus"></i>
+        </div>
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <section class="get-started" id="get-started">
+    <h1 class="title">Get-started</h1>
+    <div class="section__container get-started__container">
+
+      <p class="section__text__p1">
+        Mspice uses <b>SPICE netlists</b>—text files describing circuits.
+        Think of it as a recipe: you list components, connections, and cooking instructions (simulation commands).
+      </p>
+
+      <div class="guide-grid">
+
+        <!-- Basics -->
+        <div class="guide-card">
+          <div class="guide-content">
+            <h3>1. The Structure</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-              Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              A netlist is a simple text file.
+              <br>• <b>First Line</b>: Must be a title (e.g., "* My Circuit"). It's ignored by the simulator but helps
+              you identify the file.
+              <br>• <b>Body</b>: List your components line by line.
+              <br>• <b>Last Line</b>: Must be <code>.end</code> to mark the file's completion.
             </p>
           </div>
-        </div>
-        
-        <div class="bread-board-edge">
-          <div class="VDD-line bread-board_line">
-            <i data-lucide="plus" class="bread-board-icon add"></i>
-          </div>
-          
-          <div class="VSS-line bread-board_line">
-            <i data-lucide="minus" class="bread-board-icon minus"></i>
-          </div>
-        </div>
-          
-        <!-- <div class="VSS"></div> -->
-
-        <div class="about__member">
-          <div class="small-grid-container">
-
-            <div class="about__member-card card__profile-1">
-              <div class="card-pic">
-                <img src="./assets/test-profile-pic.jpg" alt="">
-              </div>
-              <h3 class="card-name chinese">XXX</h3>
+          <div class="spice-window">
+            <div class="spice-window-header">
+              <div class="fake-window-btn window-btn-1"></div>
+              <div class="fake-window-btn window-btn-2"></div>
+              <div class="fake-window-btn window-btn-3"></div>
             </div>
-
-            <div class="about__member-card card__info-1">
-              <div class="card-lists">
-                <ul class="card-tags">
-                 <li>Coder</li>
-               </ul>
-               <ul class="card__info-list">
-                 <li><i data-lucide="school" class="card-icon"></i>NCU EE</li>
-                 <li><i data-lucide="at-sign" class="card-icon"></i>example@gmail.com</li>
-                 <li><a href="https://www.instagram.com" class="insta-btn" target="_blank"><i data-lucide="instagram" class="card-icon"></i> @instagram</a></li>
-               </ul>
-             </div>
-            </div>
-
+            <div class="spice-window-body">* My Circuit Title
+R1 1 0 1k
+V1 1 0 5
+.end</div>
           </div>
         </div>
 
-        <div class="board-middle bread-board_line"></div>
-
-        <div class="about__member">
-          <div class="small-grid-container">
-
-            <div class="about__member-card card__profile-2">
-              <div class="card-pic">
-                <img src="./assets/test-profile-pic.jpg" alt="">
-              </div>
-              <h3 class="card-name chinese">XXX</h3>
+        <!-- Components -->
+        <div class="guide-card">
+          <div class="guide-content">
+            <h3>2. Components Connection</h3>
+            <p>
+              Components are defined by their name and "Nodes" (connection points).
+              <br>• <code>R1 1 2 1k</code> means: Resistor <b>R1</b> connects node <b>1</b> to node <b>2</b> with value
+              <b>1k</b> Ohm.
+              <br>• Node <code>0</code> is always Ground (GND).
+              <br>• Voltage Sources (<code>V...</code>) power your circuit.
+            </p>
+          </div>
+          <div class="spice-window">
+            <div class="spice-window-header">
+              <div class="fake-window-btn window-btn-1"></div>
+              <div class="fake-window-btn window-btn-2"></div>
+              <div class="fake-window-btn window-btn-3"></div>
             </div>
-
-            <div class="about__member-card card__info-2">
-              <div class="card-lists">
-                <ul class="card-tags">
-                 <li>Coder</li>
-               </ul>
-               <ul class="card__info-list">
-                 <li><i data-lucide="school" class="card-icon"></i>NCU EE</li>
-                 <li><i data-lucide="at-sign" class="card-icon"></i>example@gmail.com</li>
-                 <li><a href="https://www.instagram.com" class="insta-btn" target="_blank"><i data-lucide="instagram" class="card-icon"></i> @instagram</a></li>
-               </ul>
-             </div>
-            </div>
-
+            <div class="spice-window-body">R1 1 2 1k
+C1 2 0 1u
+L1 2 3 10m
+V1 1 0 DC 5</div>
           </div>
         </div>
 
-
-        <div class="bread-board-edge">
-          <div class="VDD-line bread-board_line">
-            <i data-lucide="plus" class="bread-board-icon add"></i>
+        <!-- Transient -->
+        <div class="guide-card">
+          <div class="guide-content">
+            <h3>3. Transient Analysis (Time)</h3>
+            <p>
+              Want to see how voltage changes over time? Use Transient Analysis!
+              <br>• <code>.tran [step] [stop]</code>
+              <br>• Example: <code>.tran 10u 5m</code> scans for 5ms with 10us steps.
+              <br>• Use <code>PULSE</code> source to create switching signals (like a square wave).
+            </p>
           </div>
-          
-          <div class="VSS-line bread-board_line">
-            <i data-lucide="minus" class="bread-board-icon minus"></i>
-          </div>
-        </div>
-          
-        <!-- <div class="VSS"></div> -->
-
-        <div class="about__member">
-          <div class="small-grid-container">
-
-            <div class="about__member-card card__profile-1">
-              <div class="card-pic">
-                <img src="./assets/test-profile-pic.jpg" alt="">
-              </div>
-              <h3 class="card-name chinese">XXX</h3>
+          <div class="spice-window">
+            <div class="spice-window-header">
+              <div class="fake-window-btn window-btn-1"></div>
+              <div class="fake-window-btn window-btn-2"></div>
+              <div class="fake-window-btn window-btn-3"></div>
             </div>
-
-            <div class="about__member-card card__info-1">
-              <div class="card-lists">
-                <ul class="card-tags">
-                 <li>Coder</li>
-               </ul>
-               <ul class="card__info-list">
-                 <li><i data-lucide="school" class="card-icon"></i>NCU EE</li>
-                 <li><i data-lucide="at-sign" class="card-icon"></i>example@gmail.com</li>
-                 <li><a href="https://www.instagram.com" class="insta-btn" target="_blank"><i data-lucide="instagram" class="card-icon"></i> @instagram</a></li>
-               </ul>
-             </div>
-            </div>
-
+            <div class="spice-window-body">V1 1 0 PULSE(0 5 1m 1n 1n 1m 2m)
+.tran 10u 5m</div>
           </div>
         </div>
 
-        <div class="board-middle bread-board_line"></div>
-
-        <div class="about__member">
-          <div class="small-grid-container">
-
-            <div class="about__member-card card__profile-2">
-              <div class="card-pic">
-                <img src="./assets/test-profile-pic.jpg" alt="">
-              </div>
-              <h3 class="card-name chinese">陳俊瑋</h3>
+        <!-- AC/DC -->
+        <div class="guide-card">
+          <div class="guide-content">
+            <h3>4. AC & DC Sweep</h3>
+            <p>
+              <b>AC Analysis</b>: Checks frequency response (filters).
+              <br><code>.ac dec 10 1 100k</code> (1Hz to 100kHz).
+              <br><br>
+              <b>DC Sweep</b>: Checks response to specific voltages.
+              <br><code>.dc V1 0 5 0.1</code> (Sweep V1 from 0V to 5V).
+            </p>
+          </div>
+          <div class="spice-window">
+            <div class="spice-window-header">
+              <div class="fake-window-btn window-btn-1"></div>
+              <div class="fake-window-btn window-btn-2"></div>
+              <div class="fake-window-btn window-btn-3"></div>
             </div>
+            <div class="spice-window-body">V1 1 0 AC 1
+.ac dec 10 1 100k
 
-            <div class="about__member-card card__info-2">
-              <div class="card-lists">
-                 <ul class="card-tags">
-                  <li>Coder</li>
-                  <li>UI Designer</li>
-                  <li>Web Designer</li>
-                </ul>
-                <ul class="card__info-list">
-                  <li><i data-lucide="school" class="card-icon"></i>NCU EE</li>
-                  <li><i data-lucide="at-sign" class="card-icon"></i>a0935109965@gmail.com</li>
-                  <li>
-                    <a href="https://www.instagram.com/will_i_am__chen/?hl=zh-tw" class="insta-btn" target="_blank">
-                      <i data-lucide="instagram" class="card-icon"></i>will_i_am__chen
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
+V2 1 0 DC 0
+.dc V2 0 5 0.1</div>
           </div>
         </div>
-
-        <div class="bread-board-edge">
-          <div class="VDD-line bread-board_line">
-            <i data-lucide="plus" class="bread-board-icon add"></i>
-          </div>
-          
-          <div class="VSS-line bread-board_line">
-            <i data-lucide="minus" class="bread-board-icon minus"></i>
-          </div>
-        </div>
-          
 
       </div>
-      
-    </section>
 
-
-    <section class="get-started" id="get-started">
-      <h1 class="title">Get-started</h1>
-      <div class="section-container get-started__container">
-        
-        <q class="get-started__text">Watch our tutorial in Youtube!</q>
-
-        <div class="get-started_upper-container">
-          
-          <div  class="get-started_container">
-            <img
-              src="./assets/youtube.png"
-              alt="YT icon"
-              class="icon contact-icon email-icon"
-            />
-            <p><a href="https://www.youtube.com/">www.youtube.com</a></p>
-          </div>
-
+      <!-- CTA Section -->
+      <div class="get-started__cta">
+        <h2>Are you ready?</h2>
+        <p>Let's verify your circuit design now.</p>
+        <div class="btn__container">
+          <button class="btn btn-color-1" onclick="location.href='app'">
+            <i data-lucide="play" class="btn-icon"></i> Let's Try It Yourself!
+          </button>
         </div>
       </div>
-        
-    </section>
+    </div>
+
+  </section>
 
 
 
-    <section class="contact" id="contact">
-      <!-- <p class="section__text__p1">Get in Touch</p> -->
-      <h1 class="title">Contact Us</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img
-            src="./assets/email.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"
-          />
-          <p><a href="mailto:examplemail@gmail.com">Example@gmail.com</a></p>
-        </div>
-        <!-- <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"
-          />
-          <p><a href="https://www.linkedin.com">LinkedIn</a></p>
-        </div> -->
+  <section class="contact" id="docs">
+    <!-- <p class="section__text__p1">Get in Touch</p> -->
+    <h1 class="title">Docs</h1>
+    <div class="contact-info-upper-container">
+      <div class="contact-info-container">
+        <i data-lucide="file-text" class="icon contact-icon email-icon"></i>
+        <p><a href="/static/assets/mspice_thesis.pdf" target="_blank">Download Thesis PDF</a></p>
       </div>
-    </section>
-    <footer>
-      <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="#home">Top</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#get-started">Get-started</a></li>
-            <!-- <li><a href="#projects">Projects</a></li> -->
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-      <p>Copyright &#169; 2024 William Chen. All Rights Reserved.</p>
-    </footer>
+    </div>
+  </section>
+  <footer>
+    <nav>
+      <div class="nav-links-container">
+        <ul class="nav-links">
+          <li><a href="#home">Top</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#get-started">Get-started</a></li>
+          <!-- <li><a href="#projects">Projects</a></li> -->
+          <li><a href="#docs">Docs</a></li>
+        </ul>
+      </div>
+    </nav>
+    <p>Copyright &#169; 2025 William Chen. All Rights Reserved.</p>
+  </footer>
 
 
-    <!-- SCRIPT -->
-    <script src="script.js"></script>
-  
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-      lucide.createIcons();
-    </script>
-    <!-- <script src="lang-switch.js"></script> -->
-  
-  </body>
+  <!-- SCRIPT -->
+  <script src="/static/js/script.js"></script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+  <!-- <script src="lang-switch.js"></script> -->
+
+</body>
+
 </html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mspice Web App</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+
+<body class="app-body">
+
+  <!-- Loading Overlay -->
+  <div id="loading-overlay" class="loading-container">
+    <!-- <div class="spinner"></div> -->
+    <img src="/static/assets/cat_doing_laundry.gif" alt="Loading..." class="loading-gif">
+    <p class="loading-text">Simulation Engine Loading...</p>
+    <div class="loading-bar">
+      <div class="loading-progress"></div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="desktop-nav" class="app-nav">
+    <div>
+      <a href="/">
+        <img class="logo" src="/static/assets/title_meow_gray.png" alt="Mspice Logo">
+      </a>
+    </div>
+    <div>
+      <ul class="nav-links">
+        <!-- Dummy items for alignment matching index.html -->
+        <li style="visibility: hidden;" aria-hidden="true"><a href="#">Get-started</a></li>
+        <li><a href="/">Home</a></li>
+        <li style="visibility: hidden;" aria-hidden="true"><a href="#">Docs</a></li>
+
+      </ul>
+    </div>
+  </nav>
+
+  <!-- App Interface -->
+  <div id="app-interface" class="app-container hidden-app">
+
+    <!-- Top Half: Input -->
+    <div class="split-top">
+      <div class="content-constraint">
+        <div class="toolbar">
+          <h2 class="app-title">Circuit Netlist</h2>
+          <div class="actions">
+
+            <input type="file" id="file-input" accept=".sp,.txt" style="display: none;" />
+            <button class="btn-app secondary" onclick="document.getElementById('file-input').click()">
+              <i data-lucide="upload"></i> Upload
+            </button>
+
+            <button class="btn-app primary" onclick="runSimulation()">
+              <i data-lucide="play"></i> Run Simulation
+            </button>
+
+          </div>
+        </div>
+        <textarea id="netlist-input"
+          placeholder="Type or paste your SPICE netlist here...&#10;Example:&#10;V1 1 0 5&#10;R1 1 0 1k&#10;.op&#10;.end"></textarea>
+      </div>
+    </div>
+
+    <!-- Bottom Half: Output -->
+    <div class="split-bottom">
+      <div class="content-constraint">
+        <h2 class="app-title" style="margin-bottom: 0.5rem;">Simulation Output</h2>
+        <div id="output-area" class="output-content">
+          <p class="placeholder-text">Run a simulation to see results here.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+  <script src="/static/js/script.js"></script>
+</body>
+<footer>
+  <nav>
+    <div class="nav-links-container">
+      <ul class="nav-links">
+        <li><a href="/">Top</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#get-started">Get-started</a></li>
+        <li><a href="/#docs">Docs</a></li>
+      </ul>
+    </div>
+  </nav>
+  <p>Copyright &#169; 2024 William Chen. All Rights Reserved.</p>
+</footer>
+
+</html>

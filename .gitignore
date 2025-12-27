@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+env/
+.DS_Store
+temp.sp
+test_output.png
+*.log
+Python_Based_SPICE_Circuit_Simulation/old_file/
+Python_Based_SPICE_Circuit_Simulation/ppt/
+Python_Based_SPICE_Circuit_Simulation/Final_Report/
+Python_Based_SPICE_Circuit_Simulation/README.md
