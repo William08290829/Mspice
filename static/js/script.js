@@ -123,7 +123,7 @@ if (loadingOverlay) {
     setTimeout(() => {
       loadingOverlay.classList.add('fade-out');
       if (appInterface) appInterface.classList.remove('hidden-app');
-    }, 1000);
+    }, 1500);
   });
 }
 
@@ -154,6 +154,16 @@ async function runSimulation() {
   // Show loading state in output
   outputArea.innerHTML = '<div class="spinner" style="width:30px;height:30px;"></div><p>Simulating...</p>';
 
+  // Button Loading State
+  const runBtn = document.querySelector('.btn-app.primary');
+  const originalBtnContent = runBtn.innerHTML;
+
+  if (runBtn) {
+    runBtn.innerHTML = '<div class="mini-spinner"></div> Running...';
+    runBtn.classList.add('btn-loading');
+    runBtn.disabled = true;
+  }
+
   try {
     const response = await fetch('/api/simulate', {
       method: 'POST',
@@ -176,5 +186,18 @@ async function runSimulation() {
   } catch (err) {
     console.error(err);
     outputArea.innerHTML = `<p style="color:red;">Network Error: ${err.message}</p>`;
+  } finally {
+    // Reset Button State
+    if (runBtn) {
+      runBtn.innerHTML = originalBtnContent;
+      runBtn.classList.remove('btn-loading');
+      runBtn.disabled = false;
+
+      // Suppress animation until mouse leaves
+      runBtn.classList.add('suppress-peek');
+      runBtn.addEventListener('mouseleave', () => {
+        runBtn.classList.remove('suppress-peek');
+      }, { once: true });
+    }
   }
 }

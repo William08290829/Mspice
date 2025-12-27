@@ -120,12 +120,13 @@
         <div class="about__text">
           <h1 class="title">About Us</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-            laborum.
+            We are a team of four senior students from the <b>Department of Electrical Engineering at National Central University (NCU)</b>, Taiwan. 
+            This project, "Mspice," serves as our graduation capstone project, developed under the guidance of <b>Prof. Chiu-Chih Chou</b>.
+          </p>
+          <p>
+            <b>Why Mspice?</b> While professional tools like Hspice are powerful, they can be intimidating for newcomers.
+            Leveraging <b>Python's</b> intuitive syntax , we built this SPICE engine from scratch to gain a deeper understanding of circuit analysis algorithms.
+            Our goal is to create a <b>lightweight, beginner-friendly, and open-source</b> tool that makes circuit simulation accessible to everyone—without the steep learning curve.
           </p>
         </div>
       </div>
@@ -289,13 +290,18 @@
 
 
   <section class="get-started" id="get-started">
-    <h1 class="title">Get-started</h1>
+    <h1 class="title">Get-started <img src="/static/assets/cat_thumbs_up.png" alt="Thumbs up cat" class="cat-thumbs-up">
+    </h1>
     <div class="section__container get-started__container">
 
       <p class="section__text__p1">
         Mspice uses <b>SPICE netlists</b>—text files describing circuits.
         Think of it as a recipe: you list components, connections, and cooking instructions (simulation commands).
       </p>
+
+      <!-- ... (omitted content) ... -->
+
+
 
       <div class="guide-grid">
 
@@ -327,25 +333,39 @@ V1 1 0 5
         <!-- Components -->
         <div class="guide-card">
           <div class="guide-content">
-            <h3>2. Components Connection</h3>
+            <h3>2. Supported Components</h3>
             <p>
-              Components are defined by their name and "Nodes" (connection points).
-              <br>• <code>R1 1 2 1k</code> means: Resistor <b>R1</b> connects node <b>1</b> to node <b>2</b> with value
-              <b>1k</b> Ohm.
-              <br>• Node <code>0</code> is always Ground (GND).
-              <br>• Voltage Sources (<code>V...</code>) power your circuit.
+              Imagine your circuit is a <b>Lego set</b>. Here are the blocks you can use:
+              <br><b>Basic Syntax:</b> <code>Name Node1 Node2 Value</code>
+            </p>
+            <ul class="component-list" style="list-style: none; padding: 0; font-size: 0.9rem; line-height: 1.8;">
+              <li><b>Resistor (R)</b>: <code>R1 1 2 1k</code> (1k Ohm)</li>
+              <li><b>Capacitor (C)</b>: <code>C1 2 0 1u</code> (1u Farad)</li>
+              <li><b>Inductor (L)</b>: <code>L1 2 3 10m</code> (10m Henry)</li>
+              <li><b>Voltage (V)</b>: <code>V1 1 0 dc 5</code> (5V DC Source)</li>
+              <li><b>Diode (D)</b>: <code>D1 1 2 model_name</code></li>
+              <li><b>MOSFET (M)</b>: <code>M1 D G S B model w=10u l=1u</code></li>
+            </ul>
+            <p style="font-size: 0.8rem; margin-top: 5px; color: #666;">
+              *Node <code>0</code> is always Ground (GND).
             </p>
           </div>
+
           <div class="spice-window">
             <div class="spice-window-header">
               <div class="fake-window-btn window-btn-1"></div>
               <div class="fake-window-btn window-btn-2"></div>
               <div class="fake-window-btn window-btn-3"></div>
             </div>
-            <div class="spice-window-body">R1 1 2 1k
+            <div class="spice-window-body">* My Circuit Parts
+R1 1 2 10k
 C1 2 0 1u
-L1 2 3 10m
-V1 1 0 DC 5</div>
+L1 2 3 1m
+* DC Source (5V)
+V1 1 0 dc 5
+* Pulse (Clock Signal)
+V2 3 0 pulse 0 5 1n 1n 1n 10u 20u
+.end</div>
           </div>
         </div>
 
@@ -421,8 +441,11 @@ V2 1 0 DC 0
     <div class="contact-info-upper-container">
       <div class="contact-info-container">
         <i data-lucide="file-text" class="icon contact-icon email-icon"></i>
-        <p><a href="/static/assets/mspice_thesis.pdf" target="_blank">Download Thesis PDF</a></p>
+        <p><a href="/static/assets/Python-Based SPICE Circuit Simulation.pdf" target="_blank">Download Thesis PDF</a></p>
       </div>
+    </div>
+    <div class="docs-cat-container">
+      <img src="/static/assets/cat_reading.gif" alt="Reading cat" class="cat-reading">
     </div>
   </section>
   <footer>

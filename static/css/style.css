@@ -942,7 +942,7 @@ body.app-body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #000008;
+  background-color: var(--black);
   /* Dark background as requested */
   z-index: 9999;
   display: flex;
@@ -1106,6 +1106,37 @@ body.app-body {
   top: -2px;
 }
 
+/* Button Loading State */
+.btn-loading {
+  cursor: not-allowed !important;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.btn-loading::before,
+.suppress-peek::before {
+  display: none !important;
+  opacity: 0 !important;
+  transition: none !important;
+}
+
+.mini-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* Output Area */
 .output-content {
   flex: 1;
@@ -1143,4 +1174,38 @@ body.app-body {
 .show {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* CAT IMAGES STYLES */
+.cat-thumbs-up {
+  height: 3rem;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+}
+
+.result-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cat-waiting {
+  width: 150px;
+  height: auto;
+  /* margin-bottom: 1rem; */
+  /* Ensure it doesn't get shadowed overly */
+  box-shadow: none !important;
+}
+
+.docs-cat-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.cat-reading {
+  width: 150px;
+  /* Adjust size as needed */
+  height: auto;
 }
