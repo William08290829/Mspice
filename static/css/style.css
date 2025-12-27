@@ -476,6 +476,7 @@ section,
   white-space: nowrap;
   align-items: center;
   justify-content: center;
+  letter-spacing: 1px;
 }
 
 .btn-color-1,

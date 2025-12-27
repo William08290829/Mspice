@@ -76,11 +76,11 @@
   <section class="home" id="home">
     <div class="section__container home__container grid-container">
       <div class="home__text">
-        <h3 class="home__title">Finding a FREE spice?</h3>
+        <h3 class="home__title">正在尋找免費的 SPICE 嗎？</h3>
         <p class="home__text__p1">
           Simulate circuits with simplicity. <br>
-          <span class="p-bold">Mspice</span> is a Python-based SPICE engine built for students and researchers
-          — lightweight, portable, and fully <span class="p-bold">open-source</span>.
+          <span class="p-bold">Mspice</span> 是一個專為學生與研究人員打造的 Python SPICE 工具
+          ——輕量、可攜且<span class="p-bold">開源</span>.
         </p>
         <div class="btn__container">
           <button class="btn btn-color-1" onclick="location.href='app'">
@@ -117,14 +117,14 @@
         </div>
 
         <div class="intro__text">
-          <h3 class="intro__title">Use
-            <span class="file-type-deco">.sp</span> or
+          <h3 class="intro__title">使用
+            <span class="file-type-deco">.sp</span> 或
             <span class="file-type-deco">.txt</span>
-            to create your circuit!
+            來建立你的電路！
           </h3>
 
-          <p>Like Hspice, like Ngspice.</p>
-          <p>But Simpler.</p>
+          <p>就像 Hspice、Ngspice 一樣</p>
+          <p>但更簡單</p>
         </div>
       </div>
 
@@ -136,18 +136,14 @@
         <div class="about__text">
           <h1 class="title">About Us</h1>
           <p>
-            We are a team of four senior students from the <b>Department of Electrical Engineering at National Central
-              University (NCU)</b>, Taiwan.
-            This project, "Mspice," serves as our graduation capstone project, developed under the guidance of <b>Prof.
-              Chiu-Chih Chou</b>.
+            我們是來自 <b>國立中央大學電機工程學系 National Central
+              University (NCU)</b>的四位大四學生。
+            「Mspice」是我們的畢業專題作品，由 <b>周求致副教授</b> 指導我們研究開發。
           </p>
           <p>
-            <b>Why Mspice?</b> While professional tools like Hspice are powerful, they can be intimidating for
-            newcomers.
-            Leveraging <b>Python's</b> intuitive syntax , we built this SPICE engine from scratch to gain a deeper
-            understanding of circuit analysis algorithms.
-            Our goal is to create a <b>lightweight, beginner-friendly, and open-source</b> tool that makes circuit
-            simulation accessible to everyone—without the steep learning curve.
+            <b>為什麼選擇製作 Mspice？</b> 雖然像 Hspice 這樣的專業工具功能強大，但對於初學者來說往往令人望而生畏。
+            利用 <b>Python</b> 直觀的語法，我們從零開始打造了這個 SPICE 引擎，旨在創造一個<b>輕量、適合初學者且開源</b>的工具。
+            我們希望讓每個人都能輕鬆進行電路模擬，不再有陡峭的學習曲線。
           </p>
         </div>
       </div>
@@ -316,8 +312,8 @@
     <div class="section__container get-started__container">
 
       <p class="section__text__p1">
-        Mspice uses <b>SPICE netlists</b>—text files describing circuits.
-        Think of it as a recipe: you list components, connections, and cooking instructions (simulation commands).
+        Mspice 使用 <b>SPICE netlists</b>—也就是描述電路的純文字檔當作輸入。
+        需要你列出元件、連接方式，以及加上模擬指令。
       </p>
 
       <!-- ... (omitted content) ... -->
@@ -329,13 +325,12 @@
         <!-- Basics -->
         <div class="guide-card">
           <div class="guide-content">
-            <h3>1. The Structure</h3>
+            <h3>1. 檔案結構</h3>
             <p>
-              A netlist is a simple text file.
-              <br>• <b>First Line</b>: Must be a title (e.g., "* My Circuit"). It's ignored by the simulator but helps
-              you identify the file.
-              <br>• <b>Body</b>: List your components line by line.
-              <br>• <b>Last Line</b>: Must be <code>.end</code> to mark the file's completion.
+              一個Netlist是一個純文字檔。
+              <br>• <b>第一行</b>: 必須是標題（例如，"* My Circuit"）。它會被Mspice忽略，但有助於你辨識檔案。
+              <br>• <b>中間部分</b>: 列出你的元件 (電阻、電源...)。
+              <br>• <b>最後一行</b>: 必須是 <code>.end</code> 來標記檔案的結束。
             </p>
           </div>
           <div class="spice-window">
@@ -345,30 +340,30 @@
               <div class="fake-window-btn window-btn-3"></div>
             </div>
             <div class="spice-window-body">* My Circuit Title
-              R1 1 0 1k
-              V1 1 0 5
-              .end</div>
+R1 1 0 1k
+V1 1 0 5
+.end</div>
           </div>
         </div>
 
         <!-- Components -->
         <div class="guide-card">
           <div class="guide-content">
-            <h3>2. Supported Components</h3>
+            <h3>2. 所支援的元件</h3>
             <p>
-              Imagine your circuit is a <b>Lego set</b>. Here are the blocks you can use:
-              <br><b>Basic Syntax:</b> <code>Name Node1 Node2 Value</code>
+              其中 Mspice 支援以下元件:
+              <br><b>基本語法:</b> <code>Name Node1 Node2 Value</code>
             </p>
             <ul class="component-list" style="list-style: none; padding: 0; font-size: 0.9rem; line-height: 1.8;">
-              <li><b>Resistor (R)</b>: <code>R1 1 2 1k</code> (1k Ohm)</li>
-              <li><b>Capacitor (C)</b>: <code>C1 2 0 1u</code> (1u Farad)</li>
-              <li><b>Inductor (L)</b>: <code>L1 2 3 10m</code> (10m Henry)</li>
-              <li><b>Voltage (V)</b>: <code>V1 1 0 dc 5</code> (5V DC Source)</li>
-              <li><b>Diode (D)</b>: <code>D1 1 2 model_name</code></li>
+              <li><b>電阻 (R)</b>: <code>R1 1 2 1k</code> (1k Ohm)</li>
+              <li><b>電容 (C)</b>: <code>C1 2 0 1u</code> (1u Farad)</li>
+              <li><b>電感 (L)</b>: <code>L1 2 3 10m</code> (10m Henry)</li>
+              <li><b>直流電源 DC (V)</b>: <code>V1 1 0 dc 5</code> (5V DC Source)</li>
+              <li><b>二極體 Diode (D)</b>: <code>D1 1 2 model_name</code></li>
               <li><b>MOSFET (M)</b>: <code>M1 D G S B model w=10u l=1u</code></li>
             </ul>
             <p style="font-size: 0.8rem; margin-top: 5px; color: #666;">
-              *Node <code>0</code> is always Ground (GND).
+              *Node <code>0</code> 永遠是接地 (GND).
             </p>
           </div>
 
@@ -379,26 +374,26 @@
               <div class="fake-window-btn window-btn-3"></div>
             </div>
             <div class="spice-window-body">* My Circuit Parts
-              R1 1 2 10k
-              C1 2 0 1u
-              L1 2 3 1m
-              * DC Source (5V)
-              V1 1 0 dc 5
-              * Pulse (Clock Signal)
-              V2 3 0 pulse 0 5 1n 1n 1n 10u 20u
-              .end</div>
+R1 1 2 10k
+C1 2 0 1u
+L1 2 3 1m
+* DC Source (5V)
+V1 1 0 dc 5
+* Pulse (Clock Signal)
+V2 3 0 pulse 0 5 1n 1n 1n 10u 20u
+.end</div>
           </div>
         </div>
 
         <!-- Transient -->
         <div class="guide-card">
           <div class="guide-content">
-            <h3>3. Transient Analysis (Time)</h3>
+            <h3>3. 暫態分析 (Transient Analysis)</h3>
             <p>
-              Want to see how voltage changes over time? Use Transient Analysis!
+              想要看看電壓如何隨著時間變化嗎？使用暫態分析！
               <br>• <code>.tran [step] [stop]</code>
-              <br>• Example: <code>.tran 10u 5m</code> scans for 5ms with 10us steps.
-              <br>• Use <code>PULSE</code> source to create switching signals (like a square wave).
+              <br>• Example: <code>.tran 10u 5m</code> 掃描 5ms 的時間，以 10us 的步長
+              <br>• 可使用 <code>PULSE</code> 訊號源來產生方波。
             </p>
           </div>
           <div class="spice-window">
@@ -408,20 +403,21 @@
               <div class="fake-window-btn window-btn-3"></div>
             </div>
             <div class="spice-window-body">V1 1 0 PULSE(0 5 1m 1n 1n 1m 2m)
-              .tran 10u 5m</div>
+.tran 10u 5m</div>
           </div>
         </div>
 
         <!-- AC/DC -->
         <div class="guide-card">
           <div class="guide-content">
-            <h3>4. AC & DC Sweep</h3>
+            <h3>4. AC & DC 掃描</h3>
             <p>
-              <b>AC Analysis</b>: Checks frequency response (filters).
-              <br><code>.ac dec 10 1 100k</code> (1Hz to 100kHz).
+              測試電路對不同輸入的反應。
+              <b>AC Analysis</b>: 檢查頻率響應 (如濾波器)。
+              <br><code>.ac dec 10 1 100k</code> (1Hz 到 100kHz)
               <br><br>
-              <b>DC Sweep</b>: Checks response to specific voltages.
-              <br><code>.dc V1 0 5 0.1</code> (Sweep V1 from 0V to 5V).
+              <b>DC Sweep</b>: 檢查特定電壓的響應。
+              <br><code>.dc V1 0 5 0.1</code> (V1 從 0V 掃到 5V)
             </p>
           </div>
           <div class="spice-window">
@@ -431,10 +427,10 @@
               <div class="fake-window-btn window-btn-3"></div>
             </div>
             <div class="spice-window-body">V1 1 0 AC 1
-              .ac dec 10 1 100k
+.ac dec 10 1 100k
 
-              V2 1 0 DC 0
-              .dc V2 0 5 0.1</div>
+V2 1 0 DC 0
+.dc V2 0 5 0.1</div>
           </div>
         </div>
 
@@ -442,8 +438,8 @@
 
       <!-- CTA Section -->
       <div class="get-started__cta">
-        <h2>Are you ready?</h2>
-        <p>Let's verify your circuit design now.</p>
+        <h2>準備好了嗎?</h2>
+        <p>現在就來驗證你的電路設計吧!</p>
         <div class="btn__container">
           <button class="btn btn-color-1" onclick="location.href='app'">
             <i data-lucide="play" class="btn-icon"></i> Let's Try It Yourself!
@@ -462,7 +458,7 @@
     <div class="contact-info-upper-container">
       <div class="contact-info-container">
         <i data-lucide="file-text" class="icon contact-icon email-icon"></i>
-        <p><a href="/static/assets/Python-Based SPICE Circuit Simulation.pdf" target="_blank">Download Thesis PDF</a>
+        <p><a href="/static/assets/Python-Based SPICE Circuit Simulation.pdf" target="_blank">下載我們的專題書面報告</a>
         </p>
       </div>
     </div>
