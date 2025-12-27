@@ -110,6 +110,14 @@ def home():
     # Landing Page
     return render_template('index.html')
 
+@app.route('/index.html')
+def home_explicit():
+    return render_template('index.html')
+
+@app.route('/index-zh.html')
+def home_zh():
+    return render_template('index-zh.html')
+
 @app.route('/app')
 def app_page():
     # App Interface

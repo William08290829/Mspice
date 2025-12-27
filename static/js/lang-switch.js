@@ -1,13 +1,30 @@
 // language-switch.js
 
-// 获取浏览器语言
-const userLang = navigator.language || navigator.userLanguage;
+document.addEventListener('DOMContentLoaded', () => {
+  const userLang = navigator.language || navigator.userLanguage;
+  const prefLang = localStorage.getItem('user_pref_lang');
 
-// 根据语言选择加载对应的页面
-if (userLang.startsWith('zh')) {
-  // 如果是中文，跳转到中文版页面
-  window.location.href = 'index-zh.html';
-} else {
-  // 否则跳转到英文版页面
-  window.location.href = 'index.html';
-}
+  // Only redirect if no preference is saved
+  if (!prefLang) {
+    if (userLang.startsWith('zh')) {
+      window.location.href = 'index-zh.html';
+    } else {
+      // Already on index.html, no action needed for EN
+      // If we were on index-zh.html, we'd redirect to index.html here
+    }
+  }
+
+  // Attach click listeners to language options to save preference
+  const langOptions = document.querySelectorAll('.lang-option');
+  langOptions.forEach(option => {
+    option.addEventListener('click', (e) => {
+      // Determine language based on link destination or text
+      // Here 'index-zh.html' implies Chinese
+      if (option.getAttribute('href').includes('zh')) {
+        localStorage.setItem('user_pref_lang', 'zh');
+      } else {
+        localStorage.setItem('user_pref_lang', 'en');
+      }
+    });
+  });
+});

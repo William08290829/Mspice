@@ -207,6 +207,59 @@ nav {
 */
 
 
+/* LANGUAGE SWITCHER */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8em;
+  /* Removed container pill style as requested */
+}
+
+/* No hover effect on container anymore */
+
+.lang-active {
+  color: var(--black);
+  font-weight: 700;
+  cursor: default;
+
+  /* Active State Styling */
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.lang-option {
+  color: var(--gray);
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 15px;
+  transition: all 0.2s ease;
+}
+
+.lang-option:hover {
+  color: var(--black);
+  background-color: rgba(255, 255, 255, 0.3);
+  /* Faint highlight on hover */
+  text-decoration: none;
+  filter: none;
+}
+
+.lang-flag {
+  height: 1.2em;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 4px;
+  position: relative;
+  top: -1px;
+  /* Slight adjustment for alignment */
+}
+
+.divider {
+  color: var(--light-gray);
+}
+
 /* HAMBURGER MENU */
 #hamburger-nav {
   display: none;
