@@ -1,4 +1,4 @@
-**D-flipflop
+*D-flipflop
 .subckt inv in out VDD VSS 
 Mp1 out in VDD VDD p_18 w=0.36u l=0.18u
 Mn1 out in VSS VSS n_18 w=0.36u l=0.18u

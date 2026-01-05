@@ -609,6 +609,13 @@ def Dc_analysis(
     vectorB = np.zeros(matrix_size)
     vectorB_nonlin = np.zeros(matrix_size)
     
+    # Check for potential infinite loop conditions
+    if V_step == 0:
+        raise ValueError("DC sweep step size cannot be zero.")
+    # Allow for small floating point errors, but generally sign must match
+    if (end_V - start_V) * V_step < 0 and (end_V != start_V):
+         raise ValueError(f"Infinite loop detected: Sweep from {start_V} to {end_V} with step {V_step} is impossible. Please check your signs.")
+
     voltage = start_V
     x_axis = []
     x_0 = []

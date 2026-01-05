@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mspice Web App</title>
   <link rel="stylesheet" href="/static/css/style.css" />
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 </head>
 
 <body class="app-body">
@@ -61,18 +62,64 @@
           </div>
         </div>
         <textarea id="netlist-input"
-          placeholder="Type or paste your SPICE netlist here...&#10;Example:&#10;V1 1 0 5&#10;R1 1 0 1k&#10;.op&#10;.end"></textarea>
+          placeholder="Type or paste your SPICE netlist here...&#10;Example:&#10;*A Simple RC Circuit&#10;V1 1 0 PULSE(0 5 0 1n 1n 5m 10m)&#10;R1 1 2 1k&#10;C1 2 0 1u&#10;.tran 20u 10m&#10;.end"></textarea>
       </div>
     </div>
 
     <!-- Bottom Half: Output -->
     <div class="split-bottom">
       <div class="content-constraint">
-        <h2 class="app-title" style="margin-bottom: 0.5rem;">Simulation Output</h2>
+        <div class="result-header"
+          style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <h2 class="app-title" style="margin-bottom: 0;">Simulation Output</h2>
+
+            <!-- Signal Selector Dropdown -->
+            <div id="signal-controls" class="signal-controls app-hidden" style="position: relative;">
+              <div class="custom-dropdown" style="position: relative; display: inline-block;">
+                <button id="signal-dropdown-btn" class="btn-app secondary" onclick="toggleSignalDropdown()"
+                  style="width: 180px; justify-content: space-between; background: white; border: 1px solid var(--light-gray); height: 36px; padding: 0 10px;">
+                  <span id="signal-dropdown-text">Select Signals</span>
+                  <span style="font-size: 0.8em;">▼</span>
+                </button>
+                <div id="signal-dropdown-content" class="dropdown-content app-hidden"
+                  style="position: absolute; top: 110%; left: 0; background: white; border: 1px solid var(--light-gray); z-index: 1000; padding: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 180px; max-height: 300px; overflow-y: auto; border-radius: 5px;">
+                  <div id="signal-checkboxes" style="display: flex; flex-direction: column; gap: 5px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button id="download-plot-btn" class="btn-app secondary app-hidden" onclick="downloadPlotly()">
+            <i data-lucide="download"></i> download diagram
+          </button>
+        </div>
+
         <div id="output-area" class="output-content">
           <div class="result-placeholder">
             <img src="/static/assets/cat_51121.gif" alt="Waiting cat" class="cat-waiting">
             <p class="placeholder-text">Run a simulation to see results here.</p>
+          </div>
+        </div>
+
+        <!-- New Data Results Section -->
+        <div class="result-header" style="margin-top: 2rem;">
+          <h2 class="app-title" style="margin-bottom: 0.5rem;">Result Data</h2>
+          <button id="download-csv-btn" class="btn-app secondary app-hidden" onclick="downloadCSV()">
+            <i data-lucide="file-text"></i> download CSV
+          </button>
+        </div>
+
+        <div id="data-results-section" class="output-content">
+          <div class="table-wrapper">
+            <div id="data-placeholder" class="result-placeholder" style="padding: 2rem; text-align: center;">
+              <img src="/static/assets/cat_happy_happy.gif" alt="Waiting cat" class="cat-waiting">
+              <p class="placeholder-text">Run a simulation to see raw data here.</p>
+            </div>
+            <table id="data-table" class="app-hidden">
+              <thead></thead>
+              <tbody></tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -97,7 +144,7 @@
       </ul>
     </div>
   </nav>
-  <p>Copyright &#169; 2024 William Chen. All Rights Reserved.</p>
+  <p>Copyright &#169; 2025 William Chen. All Rights Reserved.</p>
 </footer>
 
 </html>

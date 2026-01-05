@@ -5,3 +5,4 @@ sympy
 mpmath
 scipy
 requests
+pydantic

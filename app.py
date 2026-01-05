@@ -17,6 +17,7 @@ sys.path.append(BACKEND_DIR)
 import utils
 
 last_plot_b64 = None
+last_csv_data = None
 
 def mock_plot_picture(templist, namelist, times, result, cmd, x, circuit_name):
     global last_plot_b64
@@ -73,6 +74,42 @@ def mock_plot_picture(templist, namelist, times, result, cmd, x, circuit_name):
     last_plot_b64 = base64.b64encode(buf.getvalue()).decode('utf-8')
     plt.close()
 
+    # --- Capture Data for CSV ---
+    # Construct headers
+    # Determine X label based on command
+    x_label = "Time (s)"
+    if cmd[0] == "ac": x_label = "Frequency (Hz)"
+    elif cmd[0] == "dc": x_label = "Sweep Voltage (V)"
+    
+    # Add units to headers (Assuming Voltage for now)
+    headers = [x_label] + [f"{n} (V)" for n in nodes]
+    
+    # Construct rows
+    # Gather Y-values
+    # Note: re-looping to maintain consistent order with headers
+    y_lists = [] # List of lists [[y1_points...], [y2_points...]]
+    for node in nodes:
+        idx = dic_result[node] - 1
+        y_val_list = []
+        for r in result:
+             val = r[idx]
+             if isinstance(val, complex) or isinstance(val, np.complex128):
+                y_val_list.append(abs(val))
+             else:
+                y_val_list.append(val)
+        y_lists.append(y_val_list)
+    
+    # Transpose to rows: [x1, y1_node1, y1_node2...], [x2, y2_node1, y2_node2...]
+    rows = []
+    for i in range(len(x)):
+        row = [x[i]]
+        for y_l in y_lists:
+            row.append(y_l[i])
+        rows.append(row)
+
+    global last_csv_data
+    last_csv_data = {"headers": headers, "rows": rows}
+
 # Override
 utils.plot_picture = mock_plot_picture
 utils.plot_picture_trans = mock_plot_picture
@@ -125,8 +162,9 @@ def app_page():
 
 @app.route('/api/simulate', methods=['POST'])
 def simulate():
-    global last_plot_b64
+    global last_plot_b64, last_csv_data
     last_plot_b64 = None
+    last_csv_data = None
     
     data = request.json
     netlist_text = data.get('netlist')
@@ -261,7 +299,7 @@ def simulate():
              return jsonify({"error": f"Command {cmd[0]} not supported yet."}), 400
 
         if last_plot_b64:
-            return jsonify({"image": last_plot_b64})
+            return jsonify({"image": last_plot_b64, "data": last_csv_data})
         else:
             return jsonify({"message": "Simulation ran but no graph produced."})
 
