@@ -1,5 +1,6 @@
-RC Circuit Transient Response
-r1 1 2 10k 
-c1 2 0 1u
-vin 1 0 ac 5
+*A Simple RC Circuit
+V1 1 0 PULSE(0 5 0 1n 1n 5m 10m)
+R1 1 2 1k
+C1 2 0 1u
+.tran 20u 10m
 .end

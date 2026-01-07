@@ -1,5 +1,6 @@
 import sys
 import os
+import uuid
 import io
 import base64
 import numpy as np
@@ -188,14 +189,16 @@ def simulate():
     if not cmd:
         return jsonify({"error": "No simulation command (.ac, .dc) found in netlist."}), 400
 
-    # Write temp file for parser (without active command lines)
-    temp_file = "temp.sp"
-    with open(temp_file, "w") as f:
-        f.write("\n".join(cleaned_netlist_lines))
+    # Generate unique filename for this request
+    unique_filename = f"temp_{uuid.uuid4().hex}.sp"
 
     try:
+        # Write temp file for parser (without active command lines)
+        with open(unique_filename, "w") as f:
+            f.write("\n".join(cleaned_netlist_lines))
+
         # --- LOGIC PORTED FROM test_func.py ---
-        circuit_name, components, namelist = parse(temp_file)
+        circuit_name, components, namelist = parse(unique_filename)
         if circuit_name.startswith('*'):
              circuit_name = circuit_name.lstrip('*').strip()
 
@@ -307,6 +310,14 @@ def simulate():
         import traceback
         traceback.print_exc()
         return jsonify({"error": str(e)}), 500
+
+    finally:
+        # Cleanup: Delete the temp file to prevent disk clutter
+        if os.path.exists(unique_filename):
+            try:
+                os.remove(unique_filename)
+            except Exception as cleanup_error:
+                print(f"Failed to delete temp file {unique_filename}: {cleanup_error}")
 
 if __name__ == '__main__':
     print("Starting Mspice Server...")
