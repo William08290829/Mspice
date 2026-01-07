@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 
 <head>
   <meta charset="UTF-8" />
@@ -11,9 +11,18 @@
   <link rel="stylesheet" href="/static/css/mediaqueries.css" />
 
 
+  <link rel="icon" href="/static/assets/icon.png" type="image/png">
 </head>
 
 <body>
+  <!-- Loading Overlay -->
+  <div id="loading-overlay" class="loading-container">
+    <img src="/static/assets/cat_doing_laundry.gif" alt="Loading..." class="loading-gif">
+    <p class="loading-text">Mspice Loading...</p>
+    <div class="loading-bar">
+      <div class="loading-progress"></div>
+    </div>
+  </div>
   <div class="page-slider">
     <a class="paw paw-active" id="home" href="#desktop-nav">
       <div class="tooltip">Top</div>
@@ -80,7 +89,7 @@
         <p class="home__text__p1">
           Simulate circuits with simplicity. <br>
           <span class="p-bold">Mspice</span> 是一個專為學生與研究人員打造的 Python SPICE 工具
-          ——輕量、可攜且<span class="p-bold">開源</span>.
+          —— 輕量、可攜且<span class="p-bold">開源</span>.
         </p>
         <div class="btn__container">
           <button class="btn btn-color-1" onclick="location.href='app'">
@@ -124,7 +133,7 @@
           </h3>
 
           <p>就像 Hspice、Ngspice 一樣</p>
-          <p>但更簡單</p>
+          <p>但更簡單!</p>
         </div>
       </div>
 
@@ -164,21 +173,21 @@
 
           <div class="about__member-card card__profile-1">
             <div class="card-pic">
-              <img src="/static/assets/test-profile-pic.jpg" alt="">
+              <img src="/static/assets/cat_avatars/cat_05.png" alt="">
             </div>
-            <h3 class="card-name chinese">XXX</h3>
+            <div class="card-name chinese">李軒毅</div>
           </div>
 
           <div class="about__member-card card__info-1">
             <div class="card-lists">
               <ul class="card-tags">
-                <li>Coder</li>
+                <li>設計程式的</li>
               </ul>
               <ul class="card__info-list">
-                <li><i data-lucide="school" class="card-icon"></i>NCU EE</li>
-                <li><i data-lucide="at-sign" class="card-icon"></i>example@gmail.com</li>
-                <li><a href="https://www.instagram.com" class="insta-btn" target="_blank"><i data-lucide="instagram"
-                      class="card-icon"></i> @instagram</a></li>
+                <li><i data-lucide="school" class="card-icon"></i>國立中央大學電機工程學系</li>
+                <li><i data-lucide="at-sign" class="card-icon"></i>lee.eason0524@gmail.com</li>
+                <!-- <li><a href="https://www.instagram.com" class="insta-btn" target="_blank"><i data-lucide="instagram"
+                      class="card-icon"></i> @instagram</a></li> -->
               </ul>
             </div>
           </div>
@@ -193,21 +202,21 @@
 
           <div class="about__member-card card__profile-2">
             <div class="card-pic">
-              <img src="/static/assets/test-profile-pic.jpg" alt="">
+              <img src="/static/assets/cat_avatars/cat_14.png" alt="">
             </div>
-            <h3 class="card-name chinese">XXX</h3>
+            <div class="card-name chinese">黃聖倫</div>
           </div>
 
           <div class="about__member-card card__info-2">
             <div class="card-lists">
               <ul class="card-tags">
-                <li>Coder</li>
+                <li>設計程式的</li>
               </ul>
               <ul class="card__info-list">
-                <li><i data-lucide="school" class="card-icon"></i>NCU EE</li>
-                <li><i data-lucide="at-sign" class="card-icon"></i>example@gmail.com</li>
-                <li><a href="https://www.instagram.com" class="insta-btn" target="_blank"><i data-lucide="instagram"
-                      class="card-icon"></i> @instagram</a></li>
+                <li><i data-lucide="school" class="card-icon"></i>國立中央大學電機工程學系</li>
+                <li><i data-lucide="at-sign" class="card-icon"></i>shenglun5738@gmail.com</li>
+                <!-- <li><a href="https://www.instagram.com" class="insta-btn" target="_blank"><i data-lucide="instagram"
+                      class="card-icon"></i> @instagram</a></li> -->
               </ul>
             </div>
           </div>
@@ -233,21 +242,21 @@
 
           <div class="about__member-card card__profile-1">
             <div class="card-pic">
-              <img src="/static/assets/test-profile-pic.jpg" alt="">
+              <img src="/static/assets/cat_avatars/cat_11.png" alt="">
             </div>
-            <h3 class="card-name chinese">XXX</h3>
+            <div class="card-name chinese">黃啓鈞</div>
           </div>
 
           <div class="about__member-card card__info-1">
             <div class="card-lists">
               <ul class="card-tags">
-                <li>Coder</li>
+                <li>設計程式的</li>
               </ul>
               <ul class="card__info-list">
-                <li><i data-lucide="school" class="card-icon"></i>NCU EE</li>
-                <li><i data-lucide="at-sign" class="card-icon"></i>example@gmail.com</li>
-                <li><a href="https://www.instagram.com" class="insta-btn" target="_blank"><i data-lucide="instagram"
-                      class="card-icon"></i> @instagram</a></li>
+                <li><i data-lucide="school" class="card-icon"></i>國立中央大學電機工程學系</li>
+                <li><i data-lucide="at-sign" class="card-icon"></i>jim1743543332@gmail.com</li>
+                <!-- <li><a href="https://www.instagram.com" class="insta-btn" target="_blank"><i data-lucide="instagram"
+                      class="card-icon"></i> @instagram</a></li> -->
               </ul>
             </div>
           </div>
@@ -262,26 +271,25 @@
 
           <div class="about__member-card card__profile-2">
             <div class="card-pic">
-              <img src="/static/assets/test-profile-pic.jpg" alt="">
+              <img src="/static/assets/cat_avatars/cat_01.png" alt="">
             </div>
-            <h3 class="card-name chinese">陳俊瑋</h3>
+            <div class="card-name chinese">陳俊瑋</div>
           </div>
 
           <div class="about__member-card card__info-2">
             <div class="card-lists">
               <ul class="card-tags">
-                <li>Coder</li>
-                <li>UI Designer</li>
-                <li>Web Designer</li>
+                <li>設計程式的</li>
+                <li>設計網頁的</li>
               </ul>
               <ul class="card__info-list">
-                <li><i data-lucide="school" class="card-icon"></i>NCU EE</li>
+                <li><i data-lucide="school" class="card-icon"></i>國立中央大學電機工程學系</li>
                 <li><i data-lucide="at-sign" class="card-icon"></i>a0935109965@gmail.com</li>
-                <li>
+                <!-- <li>
                   <a href="https://www.instagram.com/will_i_am__chen/?hl=zh-tw" class="insta-btn" target="_blank">
                     <i data-lucide="instagram" class="card-icon"></i>will_i_am__chen
                   </a>
-                </li>
+                </li> -->
               </ul>
             </div>
           </div>
@@ -372,15 +380,7 @@ V1 1 0 5
               <div class="fake-window-btn window-btn-2"></div>
               <div class="fake-window-btn window-btn-3"></div>
             </div>
-            <div class="spice-window-body">* My Circuit Parts
-R1 1 2 10k
-C1 2 0 1u
-L1 2 3 1m
-* DC Source (5V)
-V1 1 0 dc 5
-* Pulse (Clock Signal)
-V2 3 0 pulse 0 5 1n 1n 1n 10u 20u
-.end</div>
+            <div class="spice-window-body">* My Circuit Parts<br>R1 1 2 10k<br>C1 2 0 1u<br>L1 2 3 1m<br>* DC Source (5V)<br>V1 1 0 dc 5<br>* Pulse (Clock Signal)<br>V2 3 0 pulse 0 5 1n 1n 1n 10u 20u<br>.end</div>
           </div>
         </div>
 
@@ -401,8 +401,7 @@ V2 3 0 pulse 0 5 1n 1n 1n 10u 20u
               <div class="fake-window-btn window-btn-2"></div>
               <div class="fake-window-btn window-btn-3"></div>
             </div>
-            <div class="spice-window-body">V1 1 0 PULSE(0 5 1m 1n 1n 1m 2m)
-.tran 10u 5m</div>
+            <div class="spice-window-body">V1 1 0 PULSE(0 5 1m 1n 1n 1m 2m)<br>.tran 10u 5m</div>
           </div>
         </div>
 
@@ -425,11 +424,7 @@ V2 3 0 pulse 0 5 1n 1n 1n 10u 20u
               <div class="fake-window-btn window-btn-2"></div>
               <div class="fake-window-btn window-btn-3"></div>
             </div>
-            <div class="spice-window-body">V1 1 0 AC 1
-.ac dec 10 1 100k
-
-V2 1 0 DC 0
-.dc V2 0 5 0.1</div>
+            <div class="spice-window-body">V1 1 0 AC 1<br>.ac dec 10 1 100k<br>V2 1 0 DC 0<br>.dc V2 0 5 0.1</div>
           </div>
         </div>
 
