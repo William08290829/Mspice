@@ -332,21 +332,18 @@
         Think of it as a recipe: you list components, connections, and cooking instructions (simulation commands).
       </p>
 
-      <!-- ... (omitted content) ... -->
-
-
-
       <div class="guide-grid">
 
         <!-- Basics -->
         <div class="guide-card">
           <div class="guide-content">
-            <h3>1. The Structure</h3>
+            <h3>1. Netlist Rules (The Structure)</h3>
             <p>
               A netlist is a simple text file.
               <br>• <b>First Line</b>: Must be a title (e.g., "* My Circuit"). It's ignored by the simulator but helps
               you identify the file.
-              <br>• <b>Body</b>: List your components line by line.
+              <br>• <b>Body</b>: one component per line.
+              <br>• <b>Command</b>: choose exactly one of <code>.ac</code> , <code>.dc</code> , <code>.tran</code>.
               <br>• <b>Last Line</b>: Must be <code>.end</code> to mark the file's completion.
             </p>
           </div>
@@ -359,6 +356,7 @@
             <div class="spice-window-body">* My Circuit Title
 R1 1 0 1k
 V1 1 0 5
+.dc V1 0 5 0.1
 .end</div>
           </div>
         </div>
@@ -366,22 +364,29 @@ V1 1 0 5
         <!-- Components -->
         <div class="guide-card">
           <div class="guide-content">
-            <h3>2. Supported Components</h3>
+            <h3>2. Components & Sources (Supported Syntax)</h3>
             <p>
               Imagine your circuit is a <b>Lego set</b>. Here are the blocks you can use:
               <br><b>Basic Syntax:</b> <code>Name Node1 Node2 Value</code>
             </p>
             <ul class="component-list" style="list-style: none; padding: 0; font-size: 0.9rem; line-height: 1.8;">
-              <li><b>Resistor (R)</b>: <code>R1 1 2 1k</code> (1k Ohm)</li>
-              <li><b>Capacitor (C)</b>: <code>C1 2 0 1u</code> (1u Farad)</li>
-              <li><b>Inductor (L)</b>: <code>L1 2 3 10m</code> (10m Henry)</li>
-              <li><b>Voltage (V)</b>: <code>V1 1 0 dc 5</code> (5V DC Source)</li>
-              <li><b>Diode (D)</b>: <code>D1 1 2 model_name</code></li>
-              <li><b>MOSFET (M)</b>: <code>M1 D G S B model w=10u l=1u</code></li>
+              <li>• <b>Resistor (R)</b>: <code>R&lt;name&gt; &lt;n1&gt; &lt;n2&gt; &lt;value&gt;</code> , e.g. <code>R1 node1 node2 1k</code> (1k Ohm)</li>
+              <li>• <b>Capacitor (C)</b>: <code>C&lt;name&gt; &lt;n1&gt; &lt;n2&gt; &lt;value&gt;</code> , e.g. <code>C1 node1 node2 1u</code> (1u Farad)</li>
+              <li>• <b>Inductor (L)</b>: <code>L&lt;name&gt; &lt;n1&gt; &lt;n2&gt; &lt;value&gt;</code> , e.g. <code>L1 node1 node2 10m</code> (10m Henry)</li>
+              <li>• <b>Voltage (V)</b>: <code>V&lt;name&gt; &lt;n1&gt; &lt;n2&gt; &lt;value&gt;</code> , e.g. <code>V1 node1 node2 dc 5</code> (5V DC Source)</li>
+              <li>• <b>Diode (D)</b>: <code>D&lt;name&gt; &lt;n1&gt; &lt;n2&gt; &lt;value&gt;</code> , e.g. <code>D1 node1 node2 myDiode</code></li>
+              <li>• <b>MOSFET (M)</b>: <code>M&lt;name&gt; &lt;D&gt; &lt;G&gt; &lt;S&gt; &lt;B&gt; &lt;modelname&gt; w=&lt;width&gt; l=&lt;length&gt;</code> , e.g. <code>M1 node1 node2 node3 node4 myMOS w=10u l=1u</code></li>
             </ul>
             <p style="font-size: 0.8rem; margin-top: 5px; color: #666;">
               *Node <code>0</code> is always Ground (GND).
             </p>
+
+            <p style="margin: 10px 0 6px;"><b>Voltage sources</b>:</p>
+            <ul class="component-list" style="list-style: none; padding: 0; font-size: 0.9rem; line-height: 1.85;">
+              <li>• <b>DC</b>: <code>V&lt;name&gt; &lt;n+&gt; &lt;n-&gt; dc &lt;value&gt;</code></li>
+              <li>• <b>Pulse</b>: <code>V&lt;name&gt; &lt;n+&gt; &lt;n-&gt; pulse &lt;VL&gt; &lt;VH&gt; &lt;delay&gt; &lt;rise&gt; &lt;fall&gt; &lt;width&gt; &lt;period&gt;</code></li>
+              <li>• <b>Sin</b>: <code>V&lt;name&gt; &lt;n+&gt; &lt;n-&gt; sin &lt;offset&gt; &lt;amp&gt; &lt;freq&gt; &lt;delay&gt;</code></li>
+            </ul>
           </div>
 
           <div class="spice-window">
@@ -394,46 +399,74 @@ V1 1 0 5
           </div>
         </div>
 
-        <!-- Transient -->
+        <!-- Commands -->
         <div class="guide-card">
           <div class="guide-content">
-            <h3>3. Transient Analysis (Time)</h3>
+            <h3>4. Choose Your Simulation!</h3>
             <p>
-              Want to see how voltage changes over time? Use Transient Analysis!
-              <br>• <code>.tran [step] [stop]</code>
-              <br>• Example: <code>.tran 10u 5m</code> scans for 5ms with 10us steps.
-              <br>• Use <code>PULSE</code> source to create switching signals (like a square wave).
+              Mspice supports <b>AC</b>, <b>DC sweep</b>, and <b>Transient</b>.
+              Pick one command and place it before <code>.end</code>.
+            </p>
+
+            <p style="margin: 10px 0 6px;"><b>AC sweep:</b></p>
+            <p style="margin: 0 0 10px; font-size:0.95rem;">
+              <code>.ac &lt;variation&gt; &lt;points&gt; &lt;f_start&gt; &lt;f_stop&gt;</code><br>
+              e.g. <code>.ac dec 10 1 100k</code>
+            </p>
+
+            <p style="margin: 10px 0 6px;"><b>DC sweep:</b></p>
+            <p style="margin: 0 0 10px; font-size:0.95rem;">
+              <code>.dc &lt;source&gt; &lt;start&gt; &lt;stop&gt; &lt;step&gt;</code><br>
+              e.g. <code>.dc V1 0 5 0.1</code>
+            </p>
+
+            <p style="margin: 10px 0 6px;"><b>Transient:</b></p>
+            <p style="margin: 0; font-size:0.95rem;">
+              <code>.tran &lt;step&gt; &lt;stop&gt;</code><br>
+              e.g. <code>.tran 10u 5m</code>
             </p>
           </div>
+
           <div class="spice-window">
             <div class="spice-window-header">
               <div class="fake-window-btn window-btn-1"></div>
               <div class="fake-window-btn window-btn-2"></div>
               <div class="fake-window-btn window-btn-3"></div>
             </div>
-            <div class="spice-window-body">V1 1 0 PULSE(0 5 1m 1n 1n 1m 2m)<br>.tran 10u 5m</div>
+            <div class="spice-window-body">* AC example
+V1 in 0 sin 0 1 1k 0
+.ac dec 10 1 100k
+.end</div>
           </div>
         </div>
 
-        <!-- AC/DC -->
+        <!-- Subcircuit -->
         <div class="guide-card">
           <div class="guide-content">
-            <h3>4. AC & DC Sweep</h3>
+            <h3>5. Subcircuits (Advanced)</h3>
             <p>
-              <b>AC Analysis</b>: Checks frequency response (filters).
-              <br><code>.ac dec 10 1 100k</code> (1Hz to 100kHz).
-              <br><br>
-              <b>DC Sweep</b>: Checks response to specific voltages.
-              <br><code>.dc V1 0 5 0.1</code> (Sweep V1 from 0V to 5V).
+              To reuse a block, define a <code>.subckt</code> and call it with <code>X...</code>.
+              External node names are mapped by <b>position</b>, and internal nodes are auto-renamed to avoid collisions
+              (see the node-substitution rule in our report).
             </p>
           </div>
+
           <div class="spice-window">
             <div class="spice-window-header">
               <div class="fake-window-btn window-btn-1"></div>
               <div class="fake-window-btn window-btn-2"></div>
               <div class="fake-window-btn window-btn-3"></div>
             </div>
-            <div class="spice-window-body">V1 1 0 AC 1<br>.ac dec 10 1 100k<br>V2 1 0 DC 0<br>.dc V2 0 5 0.1</div>
+            <div class="spice-window-body">* Define a subcircuit
+.subckt myRLC a b c
+R1 a b 1k
+L1 b int 1m
+C1 int c 1u
+.ends
+
+* Use the subcircuit
+XU1 n1 n2 0 myRLC
+.end</div>
           </div>
         </div>
 
@@ -481,7 +514,7 @@ V1 1 0 5
         </ul>
       </div>
     </nav>
-    <p>Copyright &#169; 2025 William Chen. All Rights Reserved.</p>
+    <p>Copyright &#169; 2026 William Chen. All Rights Reserved.</p>
   </footer>
 
 
