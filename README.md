@@ -6,7 +6,7 @@
 
 **Mspice** is a lightweight, web-based circuit simulation tool designed for students and researchers. Built with a Python kernel, it interprets standard SPICE netlists (.sp/.txt) and performs precise circuit analysis without the complexity of traditional industrial tools.
 
-We have deployed Mspice on PythonAnywhere. You can try the live demo here: [http://mspice.pythonanywhere.com](http://mspice.pythonanywhere.com)
+We have deployed Mspice on **PythonAnywhere**. You can try the live demo here: [http://mspice.pythonanywhere.com](http://mspice.pythonanywhere.com)
 
 ![Home Page Screenshot](static/assets/screenshot_home.png)
 
