@@ -38,7 +38,7 @@ The simulation environment provides a split-view for code entry and real-time in
 
 1.  **Clone the repository**
     ```bash
-    git clone https://github.com/your-username/mspice.git
+    git clone https://github.com/William08290829/Mspice.git
     cd mspice
     ```
 
